@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        h2{
+            color: rgb(34, 111, 153);
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        h1{
+            color: rgb(22, 22, 22);
+        }
+    </style>
+   
+    <div class="container">
+        <h2>Examen Final </h2>
+        {% if user.is_authenticated %}
+        <h1>Bienvenido, {{ user.username }}</h1>
+        {% else %}
+        <h1>Bienvenido a mi sitio web</h1>
+
+        {% if messages %} {% for message in messages %}
+        <div class="notification{{message.tags}}">{{message}}</div>
+        {% endfor %} {% endif %} {% endif %}
+    <li><i class="fas fa-share"></i> <a href="{% url 'salir' %}" > Cerrar Sesion</a></li>
+</body>
+</html>
